@@ -1,0 +1,35 @@
+//
+//  GoalEntryViewModel.swift
+//  FitnessTrackerApp
+//
+//  Created by Robert le Clus on 2025/06/07.
+//
+import Foundation
+import SwiftData
+import GoalManager
+
+class GoalEntryViewModel: ObservableObject {
+	@Published var errorMessage: String? = nil
+	var context: ModelContext
+	init(context: ModelContext) {
+		self.context = context
+	}
+
+	private var goals: [Goal] = []
+	
+	func addGoal(day: String, stepGoal:Int) {
+		let goal = Goal(targetSteps: stepGoal, countedSteps: 0, durationInMinutes: 0, weekday: day, id: UUID())
+		goals.append(goal)
+	}
+	
+	func addGoalWeek(name: String) throws {
+		do {
+			let service = GoalDataService(context: context)
+			try service.addGoals(name: name, goals: goals)
+			errorMessage = nil
+		} catch {
+			errorMessage = "Unable to save goals"
+			throw error
+		}
+	}
+}

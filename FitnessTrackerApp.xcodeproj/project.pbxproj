@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7DB2B23B2DF0915D00CD9F92 /* WorkoutTracker in Frameworks */ = {isa = PBXBuildFile; productRef = 7DB2B23A2DF0915D00CD9F92 /* WorkoutTracker */; };
-		7DB2B23E2DF0916E00CD9F92 /* GoalManager in Frameworks */ = {isa = PBXBuildFile; productRef = 7DB2B23D2DF0916E00CD9F92 /* GoalManager */; };
+		7D5DC2812DF31B6F00C1C369 /* WorkoutTracker in Frameworks */ = {isa = PBXBuildFile; productRef = 7D5DC2802DF31B6F00C1C369 /* WorkoutTracker */; settings = {ATTRIBUTES = (Required, ); }; };
+		7DB2B23E2DF0916E00CD9F92 /* GoalManager in Frameworks */ = {isa = PBXBuildFile; productRef = 7DB2B23D2DF0916E00CD9F92 /* GoalManager */; settings = {ATTRIBUTES = (Required, ); }; };
+		7DC3E3A22DF35CD000699F76 /* WorkoutTracker in Frameworks */ = {isa = PBXBuildFile; productRef = 7DB2B23A2DF0915D00CD9F92 /* WorkoutTracker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DB2B23B2DF0915D00CD9F92 /* WorkoutTracker in Frameworks */,
+				7DC3E3A22DF35CD000699F76 /* WorkoutTracker in Frameworks */,
+				7D5DC2812DF31B6F00C1C369 /* WorkoutTracker in Frameworks */,
 				7DB2B23E2DF0916E00CD9F92 /* GoalManager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +123,7 @@
 			packageProductDependencies = (
 				7DB2B23A2DF0915D00CD9F92 /* WorkoutTracker */,
 				7DB2B23D2DF0916E00CD9F92 /* GoalManager */,
+				7D5DC2802DF31B6F00C1C369 /* WorkoutTracker */,
 			);
 			productName = FitnessTrackerApp;
 			productReference = 7DB2B1EA2DF0826700CD9F92 /* FitnessTrackerApp.app */;
@@ -205,8 +208,8 @@
 			mainGroup = 7DB2B1E12DF0826700CD9F92;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				7DB2B2392DF0915D00CD9F92 /* XCLocalSwiftPackageReference "../WorkoutTracker" */,
-				7DB2B23C2DF0916E00CD9F92 /* XCLocalSwiftPackageReference "../GoalManager" */,
+				7D5DC27F2DF31B6F00C1C369 /* XCLocalSwiftPackageReference "WorkoutTracker" */,
+				7D5DC2822DF31B8100C1C369 /* XCLocalSwiftPackageReference "GoalManager" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7DB2B1EB2DF0826700CD9F92 /* Products */;
@@ -416,6 +419,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -444,6 +448,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -567,17 +572,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		7DB2B2392DF0915D00CD9F92 /* XCLocalSwiftPackageReference "../WorkoutTracker" */ = {
+		7D5DC27F2DF31B6F00C1C369 /* XCLocalSwiftPackageReference "WorkoutTracker" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../WorkoutTracker;
+			relativePath = WorkoutTracker;
 		};
-		7DB2B23C2DF0916E00CD9F92 /* XCLocalSwiftPackageReference "../GoalManager" */ = {
+		7D5DC2822DF31B8100C1C369 /* XCLocalSwiftPackageReference "GoalManager" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../GoalManager;
+			relativePath = GoalManager;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7D5DC2802DF31B6F00C1C369 /* WorkoutTracker */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WorkoutTracker;
+		};
 		7DB2B23A2DF0915D00CD9F92 /* WorkoutTracker */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WorkoutTracker;

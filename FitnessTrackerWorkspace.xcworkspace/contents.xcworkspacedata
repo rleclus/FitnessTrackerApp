@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:FitnessTrackerApp/FitnessTrackerApp.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:WorkoutTracker">
-   </FileRef>
-   <FileRef
-      location = "group:GoalManager">
+      location = "group:FitnessTrackerApp.xcodeproj">
    </FileRef>
 </Workspace>
