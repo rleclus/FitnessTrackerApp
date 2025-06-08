@@ -9,7 +9,7 @@ import GoalManager
 import SwiftData
 
 public struct GoalView: View {
-	@Query var goalWeeks: [GoalWeek]  // Automatically fetches from SwiftData
+	@Query var goalWeeks: [GoalWeek]  
 	@State var viewModel: GoalViewModel? = nil
 	@Environment(\.modelContext) private var context
 	@State var isShowingGoalEntryView = false

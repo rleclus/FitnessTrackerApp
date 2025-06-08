@@ -57,6 +57,6 @@ struct GoalWeekDetailView: View {
 	let goals = [Goal(targetSteps: 10000, countedSteps: 5321, durationInMinutes: 5, weekday: "Sunday", id: UUID()),
 				 Goal(targetSteps: 10000, countedSteps: 5321, durationInMinutes: 10, weekday: "Monday", id: UUID()),
 				 Goal(targetSteps: 10000, countedSteps: 5321, durationInMinutes: 20, weekday: "Tuesday", id: UUID())]
-	let goalWeek = GoalWeek(id: UUID(), goalName: "Week1", goalsForWeek: goals)
+	let goalWeek = GoalWeek(id: UUID(), goalName: "Week1", startDate: Date(), goalsForWeek: goals)
 	GoalWeekDetailView(goalWeek: goalWeek)
 }

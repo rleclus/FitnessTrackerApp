@@ -22,10 +22,10 @@ class GoalEntryViewModel: ObservableObject {
 		goals.append(goal)
 	}
 	
-	func addGoalWeek(name: String) throws {
+	func addGoalWeek(name: String, startDate: Date) throws {
 		do {
 			let service = GoalDataService(context: context)
-			try service.addGoals(name: name, goals: goals)
+			try service.addGoals(name: name, startDate: startDate, goals: goals)
 			errorMessage = nil
 		} catch {
 			errorMessage = "Unable to save goals"
