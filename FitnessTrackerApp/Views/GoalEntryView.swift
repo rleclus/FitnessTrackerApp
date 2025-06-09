@@ -5,10 +5,10 @@
 //  Created by Robert le Clus on 2025/06/06.
 //
 import SwiftUI
-
+import GoalManager
 
 struct GoalEntryView: View {
-	private var workoutWeek = [Week.Sunday, Week.Monday, Week.Tuesday, Week.Wednesday, Week.Thursday, Week.Friday, Week.Saturday]
+	private var workoutWeek = Week.generateWeekArray()
 	private var dates: [Date] {
 		CalendarUtils.next10Sundays(from: Date())
 	}

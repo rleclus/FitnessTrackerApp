@@ -18,7 +18,7 @@ class GoalEntryViewModel: ObservableObject {
 	private var goals: [Goal] = []
 	
 	func addGoal(day: String, stepGoal:Int) {
-		let goal = Goal(targetSteps: stepGoal, countedSteps: 0, durationInMinutes: 0, weekday: day, id: UUID())
+		let goal = Goal(id: UUID(), targetSteps: stepGoal, weekday: day, countedSteps: 0, durationInSeconds: 0)
 		goals.append(goal)
 	}
 	

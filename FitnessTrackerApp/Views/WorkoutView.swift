@@ -5,6 +5,7 @@
 //  Created by Robert le Clus on 2025/06/04.
 //
 import SwiftUI
+import SwiftData
 
 public struct WorkoutView: View {
 	@State var isAnimated = false
@@ -22,7 +23,12 @@ public struct WorkoutView: View {
 				.bold()
 				.padding()
 			Button {
-				isAnimated = true
+				withAnimation {
+					isAnimated = true
+				}
+				DispatchQueue.main.async {
+					viewModel?.startWorkout()
+				}
 			} label: {
 				Text("Start")
 					.padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
@@ -46,9 +52,7 @@ public struct WorkoutView: View {
 			.font(.title)
 			.padding(EdgeInsets(top:10, leading: 0, bottom: 10, trailing: 0))
 			Button {
-				isAnimated = false
-				workoutTimer = "00:00:00"
-				elapsedSeconds = 0
+				stopWorkout()
 			} label: {
 				Text("Stop")
 					.padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
@@ -61,21 +65,29 @@ public struct WorkoutView: View {
 		}
 		.onReceive(timer) { _ in
 			guard isAnimated else { return }
-			elapsedSeconds += 1
-			workoutTimer = formatTime(seconds: elapsedSeconds)
+			withAnimation {
+				elapsedSeconds += 1
+				workoutTimer = CalendarUtils.formatTime(seconds: elapsedSeconds)
+			}
 		}
 		.onDisappear() {
-			timer.upstream.connect().cancel()
+			guard isAnimated else { return }
+			stopWorkout()
 		}
 		.onAppear() {
 			viewModel = WorkoutViewModel(context: context)
 		}
 	}
-	func formatTime(seconds: Int) -> String {
-		let hours = seconds / 3600
-		let minutes = (seconds % 3600) / 60
-		let secs = seconds % 60
-		return String(format: "%02d:%02d:%02d", hours, minutes, secs)
+	func stopWorkout() {
+		let finalDuration = elapsedSeconds
+		DispatchQueue.main.async {
+			viewModel?.workoutComplete(duration: finalDuration)
+		}
+		withAnimation {
+			isAnimated = false
+			workoutTimer = "00:00:00"
+			elapsedSeconds = 0
+		}
 	}
 }
 #Preview {

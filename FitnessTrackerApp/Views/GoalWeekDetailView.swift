@@ -8,18 +8,13 @@ import SwiftUI
 import GoalManager
 
 struct GoalWeekDetailView: View {
-	let weekDayNumbers = [
-		"Sunday": 0,
-		"Monday": 1,
-		"Tuesday": 2,
-		"Wednesday": 3,
-		"Thursday": 4,
-		"Friday": 5,
-		"Saturday": 6,
-	]
 	let goalWeek: GoalWeek
 	var sortedWeek: [Goal] {
-		return goalWeek.goalsForWeek.sorted(by: { (weekDayNumbers[$0.weekday] ?? 7) < (weekDayNumbers[$1.weekday] ?? 7) })
+		goalWeek.goalsForWeek.sorted {
+			let day1 = CalendarUtils.weekdayIndex(for: $0.weekday)
+			let day2 = CalendarUtils.weekdayIndex(for: $1.weekday)
+			return day1 < day2
+		}
 	}
 	var body: some View {
 		VStack {
@@ -37,7 +32,7 @@ struct GoalWeekDetailView: View {
 						Text(goal.weekday)
 						Text("\(goal.targetSteps)")
 						Text("\(goal.countedSteps)")
-						Text("\(goal.durationInMinutes)")
+						Text("\(CalendarUtils.formatTime(seconds: goal.durationInSeconds))")
 					}
 					Divider()
 				}
@@ -54,9 +49,9 @@ struct GoalWeekDetailView: View {
 	}
 }
 #Preview {
-	let goals = [Goal(targetSteps: 10000, countedSteps: 5321, durationInMinutes: 5, weekday: "Sunday", id: UUID()),
-				 Goal(targetSteps: 10000, countedSteps: 5321, durationInMinutes: 10, weekday: "Monday", id: UUID()),
-				 Goal(targetSteps: 10000, countedSteps: 5321, durationInMinutes: 20, weekday: "Tuesday", id: UUID())]
+	let goals = [Goal(id: UUID(), targetSteps: 10000, weekday: "Sunday", countedSteps: 5321, durationInSeconds: 5*60),
+				 Goal(id: UUID(), targetSteps: 10000, weekday: "Monday", countedSteps: 5321, durationInSeconds: 10*60),
+				 Goal(id: UUID(), targetSteps: 10000, weekday: "Tuesday", countedSteps: 5321, durationInSeconds: 20*60)]
 	let goalWeek = GoalWeek(id: UUID(), goalName: "Week1", startDate: Date(), goalsForWeek: goals)
 	GoalWeekDetailView(goalWeek: goalWeek)
 }

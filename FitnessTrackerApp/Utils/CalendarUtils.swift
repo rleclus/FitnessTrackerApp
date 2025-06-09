@@ -35,4 +35,31 @@ class CalendarUtils {
 
 		return sundays
 	}
+	static func weekdayIndex(for dayName: String) -> Int {
+		let calendar = Calendar.current
+		let formatter = DateFormatter()
+		formatter.locale = Locale(identifier: "en_US_POSIX")
+		formatter.dateFormat = "EEEE"
+		formatter.calendar = calendar
+
+		if let date = formatter.date(from: dayName) {
+			return calendar.component(.weekday, from: date)
+		}
+		return 8
+	}
+	
+	static func weekDay(for date:Date) -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "EEEE"
+		return dateFormatter.string(from: date)
+	}
+	
+	static func formatTime(seconds: Int) -> String {
+		let hours = seconds / 3600
+		let minutes = (seconds % 3600) / 60
+		let secs = seconds % 60
+		return String(format: "%02d:%02d:%02d", hours, minutes, secs)
+	}
+
+
 }

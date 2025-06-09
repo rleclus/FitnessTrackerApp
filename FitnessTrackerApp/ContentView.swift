@@ -9,6 +9,7 @@ import SwiftUI
 import WorkoutTracker
 
 struct ContentView: View {
+	@State var errorMessage: String? = nil
     var body: some View {
 		TabView {
 			Tab("Workout", image: "workout"){
@@ -18,7 +19,16 @@ struct ContentView: View {
 				GoalView()
 			}
  		}
-    }
+		.onAppear() {
+			Task {
+				do {
+					try await WorkoutManager.shared.authoriseHealthKit()
+				} catch {
+					errorMessage = "Nessage"
+				}
+			}
+		}
+     }
 }
 
 #Preview {
