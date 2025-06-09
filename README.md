@@ -2,7 +2,6 @@
 [toc]
 ## Description
 This app has two functions. Doing workouts and achieving goals. The app tracks steps in real time and associates the steps and durations by goal day! If no goals are created for a week, the app will create empty goals for the week. You can create new goals in advance up to 10 weeks ahead. The default step goal per day is 10000 steps. However this can be changed if required. 
-
 ## Design
 The app is made up of FitnessTracker app which is the main iOS app
 The app has two Swift packages
@@ -93,6 +92,12 @@ Then
 
 	git clone git@github.com:rleclus/WorkoutTracker.git
 	git clone git@github.com:rleclus/GoalManager.git
+	
+Once these are done you can run 
+
+	open FitnessTrackerWorkspace.xcworkspace
+	
+Or open the workspace from Finder (or via Xcode itself)
 	
 In Xcode, you will need to update the ***Team*** selection in Signing and Capabilities, to match your team and update the ***Bundle Identifier*** to correctly run the application.
 
