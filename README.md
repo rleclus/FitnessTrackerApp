@@ -45,6 +45,8 @@ The ***HealthKitWorker*** has the same methods as the manager but keeps them int
 
 This implementation is hidden from the manager. 
 
+The HealthKitWorker also translates the HealthKit completion handlers into a proper ***async/await*** implementation. 
+
 _***Small caveat:***_ The WorkoutManager has MockHealtKitWorker that does nothing. This initiates when running unit tests since the unit tests do not need the HealthKit code to run and it delivers errors when the Unit tests run. This code could be altered or optimised and moved to the main app but time constraints meant it was put here for now. 
 
 ## Trade-offs
