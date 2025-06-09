@@ -1,4 +1,5 @@
 # FitnessTrackerApp
+[toc]
 ## Description
 This app has two functions. Doing workouts and achieving goals. The app tracks steps in real time and associates the steps and durations by goal day! If no goals are created for a week, the app will create empty goals for the week. You can create new goals in advance up to 10 weeks ahead. The default step goal per day is 10000 steps. However this can be changed if required. 
 
